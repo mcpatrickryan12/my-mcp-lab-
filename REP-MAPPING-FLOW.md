@@ -126,7 +126,7 @@ flowchart TD
     L1 -->|Hit| Return1[Return Full Results]
     L1 -->|Miss| L2[Level 2: Quote Metadata Cache]
 
-    L2 --> Key2[Cache Key: quotes|dateFrom|dateTo]
+    L2 --> Key2["Cache Key: quotes + dateFrom + dateTo"]
     Key2 --> Check2{Cached?}
 
     Check2 -->|Hit| LoadQuotes[Load Quote Metadata]
@@ -138,7 +138,7 @@ flowchart TD
     LoadQuotes --> L3[Level 3: Quote Items Cache]
 
     L3 --> ProcessQuotes[For Each Quote]
-    ProcessQuotes --> Key3[Cache Key: items|quoteId]
+    ProcessQuotes --> Key3["Cache Key: items + quoteId"]
 
     Key3 --> Check3{Items Cached?}
 
